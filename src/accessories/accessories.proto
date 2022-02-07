@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package accessories;
+
+service AccessoriesService {
+  rpc FindOne (AccessoriesById) returns (Accessories);
+  rpc FindById (AccessoriesById) returns (Accessories);
+  rpc FindMany (stream AccessoriesById) returns (stream Accessories);
+}
+
+message AccessoriesById {
+  int32 id = 1;
+}
+
+message Accessories {
+  int32 id = 1;
+  string name = 2;
+  int32 owner = 3;
+}
